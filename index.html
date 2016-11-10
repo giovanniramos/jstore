@@ -1,0 +1,71 @@
+<html>
+	<head>
+		<title>jstore</title>
+		<meta charset="UTF-8">
+		<script src="jstore.js"></script>
+		<script>
+			// Session name
+			var SESSION_NAME = 'SessionTest';
+			console.log('var SESSION_NAME = \'SessionTest\'; \n\n');
+
+			// Clears data only SESSION_NAME
+			jstore.remove(SESSION_NAME);
+
+			// Clears all data from the LocalStorage
+			//jstore.clear();
+
+			// Add data in session
+			jstore.set(SESSION_NAME, { year: "2015" });
+
+			// Recover data from session
+			console.log('jstore.set(SESSION_NAME, { year: "2015" })');
+			console.log('jstore.get(SESSION_NAME) =>', jstore.get(SESSION_NAME), '\n\n');
+
+			// Change session data
+			jstore.set(SESSION_NAME, { year: "2016" });
+			console.log('jstore.set(SESSION_NAME, { year: "2016" })');
+			console.log('jstore.get(SESSION_NAME) =>', jstore.get(SESSION_NAME), '\n\n');
+
+			// Add more data in session
+			jstore.set(SESSION_NAME, { name: "John" });
+			console.log('jstore.set(SESSION_NAME, { name: "John" })');
+			console.log('jstore.get(SESSION_NAME) =>', jstore.get(SESSION_NAME), '\n\n');
+
+			// Add array data in session
+			jstore.set(SESSION_NAME, { magazine: [ "FORBES", "VOGUE" ] });
+			console.log('jstore.set(SESSION_NAME, { magazine: [ "FORBES", "VOGUE" ] })');
+			console.log('jstore.get(SESSION_NAME) =>', jstore.get(SESSION_NAME), '\n\n');
+
+
+			// Check if you have data in session
+			var hasData = jstore.has(SESSION_NAME);
+			if (hasData) {
+				console.log('jstore.has(SESSION_NAME):', hasData, '\n\n');
+
+				var data = jstore.get(SESSION_NAME);
+				console.log('var data = jstore.get(SESSION_NAME);');
+				console.log('data =>', data);
+				console.log('data.year:', data.year);
+				console.log('data[0].magazine:', data.magazine[0]);
+				console.log('data[1].magazine:', data.magazine[1]);
+				console.log();
+			}
+
+
+			// Another Session name
+			jstore.set('AnotherSession', { test: "123" });
+
+			// Count total sessions created
+			var count = jstore.count();
+			console.log('jstore.count():', count);
+
+			// Displays data for all created sessions
+			jstore.each(function(k, v) {
+				console.log('jstore.each() #', k, ':', v);
+			});
+		</script>
+	</head>
+	<body>
+		...Check your console
+	</body>
+</html>
