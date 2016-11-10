@@ -1,0 +1,79 @@
+<html>
+	<head>
+		<title>jstore</title>
+		<meta charset="UTF-8">
+		<script src="jstore.js"></script>
+		<script>
+			// Session name
+			var SESSION_NAME = "SessionTest";
+			console.log('var SESSION_NAME = "SessionTest"; \n\n');
+
+			// Clears data from a specific session in localStorage
+			jstore.remove(SESSION_NAME);
+
+			// Clears all data from the localStorage
+			//jstore.clear();
+
+			// Add data in session localStorage
+			jstore.set(SESSION_NAME, { year: "2015" });
+			console.log('jstore.set(SESSION_NAME, { year: "2015" })');
+			
+			// Recover data from session
+			console.log('jstore.get(SESSION_NAME).year =>', jstore.get(SESSION_NAME).year, '\n\n');
+
+			// Change session data
+			jstore.set(SESSION_NAME, { year: "2016" });
+			console.log('jstore.set(SESSION_NAME, { year: "2016" })');
+			console.log('jstore.get(SESSION_NAME).year =>', jstore.get(SESSION_NAME).year, '\n\n');
+
+			// Personal data
+			var personalData = {
+				"firstName": "Giovanni",
+				"lastName": "Ramos",
+				"age": "34",
+			};
+			console.log('var personalData = {','\n','    "firstName": "Giovanni",','\n','    "lastName": "Ramos",','\n','    "age": "34",','\n','};');
+
+			// Add more data in session
+			jstore.set(SESSION_NAME, personalData);
+			console.log('jstore.set(SESSION_NAME, personalData)');
+			console.log('jstore.get(SESSION_NAME) =>', jstore.get(SESSION_NAME), '\n\n');
+
+			// Add array data in session
+			jstore.set(SESSION_NAME, { magazine: [ "FORBES", "VOGUE" ] });
+			console.log('jstore.set(SESSION_NAME, { magazine: [ "FORBES", "VOGUE" ] })');
+			console.log('jstore.get(SESSION_NAME) =>', jstore.get(SESSION_NAME), '\n\n');
+
+
+			// Check if you have data in session
+			var hasData = jstore.has(SESSION_NAME);
+			if (hasData) {
+				console.log('jstore.has(SESSION_NAME) =>', hasData, '\n\n');
+
+				var data = jstore.get(SESSION_NAME);
+				console.log('var data = jstore.get(SESSION_NAME);');
+				console.log('data.year =>', data.year);
+				console.log('data.firstName =>', data.firstName);
+				console.log('data[0].magazine =>', data.magazine[0]);
+				console.log('data[1].magazine =>', data.magazine[1]);
+				console.log();
+			}
+
+
+			// Another Session name
+			jstore.set('AnotherSession', { test: "ABC" });
+
+			// Count total sessions created
+			var count = jstore.count();
+			console.log('jstore.count() =>', count);
+
+			// Displays data for all created sessions
+			jstore.each(function(k, v) {
+				console.log('jstore.each() =>', k, ':', v);
+			});
+		</script>
+	</head>
+	<body>
+		...Check your console
+	</body>
+</html>
