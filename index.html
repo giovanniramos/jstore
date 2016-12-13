@@ -5,7 +5,7 @@
 		<script src="jstore.js"></script>
 		<script>
 			// Session name
-			var SESSION_NAME = "SessionTest";
+			var SESSION_NAME = "YourSessionName";
 			console.log('var SESSION_NAME = "SessionTest"; \n\n');
 
 			// Clears data from a specific session in localStorage
@@ -15,31 +15,31 @@
 			//jstore.clear();
 
 			// Add data in session localStorage
-			jstore.set(SESSION_NAME, { year: "2015" });
-			console.log('jstore.set(SESSION_NAME, { year: "2015" })');
+			jstore.set(SESSION_NAME, { year: "2016" });
+			console.log('jstore.set(SESSION_NAME, { year: "2016" })');
 			
 			// Recover data from session
 			console.log('jstore.get(SESSION_NAME).year =>', jstore.get(SESSION_NAME).year, '\n\n');
 
 			// Change session data
-			jstore.set(SESSION_NAME, { year: "2016" });
-			console.log('jstore.set(SESSION_NAME, { year: "2016" })');
+			jstore.set(SESSION_NAME, { year: "2017" });
+			console.log('jstore.set(SESSION_NAME, { year: "2017" })');
 			console.log('jstore.get(SESSION_NAME).year =>', jstore.get(SESSION_NAME).year, '\n\n');
 
 			// Personal data
 			var personalData = {
-				"firstName": "Giovanni",
-				"lastName": "Ramos",
-				"age": "34",
+				"firstName": "John",
+				"lastName": "Doe",
+				"age": "35",
 			};
-			console.log('var personalData = {','\n','    "firstName": "Giovanni",','\n','    "lastName": "Ramos",','\n','    "age": "34",','\n','};');
+			console.log('var personalData = {','\n','    "firstName": "John",','\n','    "lastName": "Doe",','\n','    "age": "35",','\n','};');
 
 			// Add more data in session
 			jstore.set(SESSION_NAME, personalData);
 			console.log('jstore.set(SESSION_NAME, personalData)');
 			console.log('jstore.get(SESSION_NAME) =>', jstore.get(SESSION_NAME), '\n\n');
 
-			// Add array data in session
+			// Add Array data in session
 			jstore.set(SESSION_NAME, { magazine: [ "FORBES", "VOGUE" ] });
 			console.log('jstore.set(SESSION_NAME, { magazine: [ "FORBES", "VOGUE" ] })');
 			console.log('jstore.get(SESSION_NAME) =>', jstore.get(SESSION_NAME), '\n\n');

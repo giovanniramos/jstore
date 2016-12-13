@@ -36,7 +36,7 @@
         set: function (key, val) {
             _checkBrowserSupport();
             if (val === undefined)
-                return alert("[jstore-js]\nERROR: This session variable '" + key + "' contains an undefined value.");
+                return alert('[jstore-js]\nERROR: This session variable "' + key + '" contains an undefined value.');
             var object = this.get(key);
             if (object == null) {
                 return localStorage.setItem(key, JSON.stringify(val));
@@ -51,24 +51,18 @@
             var val = localStorage.getItem(key);
             return (val !== "undefined") ? JSON.parse(val) : null;
         },
-        // Set/Get session localStorage
-        obj: function (key, val) {
-            if (val === undefined) {
-                return this.get(key);
-            } else {
-                this.set(key, val);
-            }
-        },
-        // Has data in session localStorage
+        // Checks the a session exists in localStorage
         has: function(key) {
             return this.get(key) !== null ? true : false; 
         },
-        // Count the total of elements in localStorage
+        // Count the total of sessions created in localStorage
         count: function () {
+            _checkBrowserSupport();
             return localStorage.length;
         },
-        // Iterate over a session object localStorage
+        // Iterate over all sessions created in localStorage
         each: function (callback) {
+            _checkBrowserSupport();
             for (var i=0; i < this.count(); i++) {
                 var key = localStorage.key(i)
                 callback(key, this.get(key))
@@ -79,7 +73,7 @@
             _checkBrowserSupport();
             localStorage.removeItem(key);
         },
-        // Clear all sessions
+        // Clear all sessions in localStorage
         clear: function () {
             _checkBrowserSupport();
             localStorage.clear();

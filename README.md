@@ -1,32 +1,32 @@
 jStore
 ================
 
-A small library to store data in HTML5 localStorage, in the client browser.
+A small library to storing JSON objects in the client browser with HTML5 localStorage.
 
 Usage
 -----
 
 ```js
 // Session name
-var SESSION_NAME = "SessionTest";
+var SESSION_NAME = "YourSessionName";
 
 // Add data in session localStorage
-jstore.set(SESSION_NAME, { year: "2015" });
+jstore.set(SESSION_NAME, { year: "2016" });
 
 // Display the value in the console
 console.log(jstore.get(SESSION_NAME).year);
 
 // Change session data
-jstore.set(SESSION_NAME, { year: "2016" });
+jstore.set(SESSION_NAME, { year: "2017" });
 
 // Display the value in the console
 console.log(jstore.get(SESSION_NAME).year);
 
 // Personal data
 var personalData = {
-	"firstName": "Giovanni",
-	"lastName": "Ramos",
-	"age": "34",
+	"firstName": "John",
+	"lastName": "Doe",
+	"age": "35",
 };
 
 // Add more data in session
